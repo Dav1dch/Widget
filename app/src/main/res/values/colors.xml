@@ -7,8 +7,15 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    
+
     <!-- Widget colors -->
     <color name="widget_background">#FF6200EE</color>
     <color name="widget_text">#FFFFFFFF</color>
+    <color name="widget_text_secondary">#B3FFFFFF</color>
+
+    <!-- Day Progress Widget colors -->
+    <color name="day_progress_start_color">#FF6200EE</color>
+    <color name="day_progress_center_color">#FF7C4DFF</color>
+    <color name="day_progress_end_color">#FFB388FF</color>
+    <color name="progress_bar_foreground_color">#FFFFFFFF</color>
 </resources>

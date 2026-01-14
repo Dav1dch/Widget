@@ -1,10 +1,16 @@
 # Android Widget
 
-一个功能完善的Android桌面小组件项目。
+一个集成年度进度、当日进度、Todo List、记录和Obsidian文件连接功能的Android桌面小组件应用。
 
 ## 项目概述
 
-本项目从简单的Hello World Widget开始，逐步扩展为一个功能丰富的Android Widget应用。
+本项目是一个功能丰富的生产力工具集合，通过桌面小组件的方式，让用户快速查看和管理重要信息。包含以下核心功能：
+
+- 📊 **年度进度** - 实时显示年度时间进度，让时光可见
+- ⏰ **当日进度** - 展示当日时间流逝，提升时间管理意识
+- ✅ **Todo List** - 快速管理和完成待办事项
+- 📝 **记录** - 快速记录灵感和备忘
+- 🔗 **Obsidian连接** - 连接你的Obsidian知识库，快速访问笔记
 
 ## 项目结构
 
@@ -12,19 +18,50 @@
 AndroidWidget/
 ├── app/                              # 应用模块
 │   ├── src/
-│   │   └── main/
-│   │       ├── java/                 # Kotlin源代码
-│   │       │   └── com/example/androidwidget/
-│   │       │       ├── MainActivity.kt
-│   │       │       └── widget/       # Widget相关类
-│   │       │           └── HelloWorldWidgetProvider.kt
-│   │       ├── res/                  # 资源文件
-│   │       │   ├── layout/           # 布局文件
-│   │       │   ├── values/           # 值资源
-│   │       │   ├── drawable/         # 图形资源
-│   │       │   ├── xml/              # XML配置
-│   │       │   └── mipmap-*/         # 图标资源
-│   │       └── AndroidManifest.xml   # 应用清单
+│   │   ├── main/
+│   │   │   ├── java/                 # Kotlin源代码
+│   │   │   │   └── com/example/androidwidget/
+│   │   │   │       ├── MainActivity.kt
+│   │   │   │       ├── widget/       # Widget相关类
+│   │   │   │       │   ├── HelloWorldWidgetProvider.kt
+│   │   │   │       │   ├── YearProgressWidgetProvider.kt
+│   │   │   │       │   ├── DayProgressWidgetProvider.kt
+│   │   │   │       │   ├── TodoListWidgetProvider.kt
+│   │   │   │       │   ├── QuickNoteWidgetProvider.kt
+│   │   │   │       │   └── ObsidianWidgetProvider.kt
+│   │   │   │       ├── model/       # 数据模型
+│   │   │   │       │   ├── TodoItem.kt
+│   │   │   │       │   ├── Note.kt
+│   │   │   │       │   ├── YearProgress.kt
+│   │   │   │       │   ├── DayProgress.kt
+│   │   │   │       │   └── ObsidianNote.kt
+│   │   │   │       ├── database/    # 数据库相关
+│   │   │   │       │   ├── AppDatabase.kt
+│   │   │   │       │   ├── TodoDao.kt
+│   │   │   │       │   └── NoteDao.kt
+│   │   │   │       ├── repository/  # 数据仓库层
+│   │   │   │       │   ├── TodoRepository.kt
+│   │   │   │       │   └── NoteRepository.kt
+│   │   │   │       ├── utils/       # 工具类
+│   │   │   │       │   ├── DateUtils.kt
+│   │   │   │       │   ├── TimeUtils.kt
+│   │   │   │       │   └── ObsidianParser.kt
+│   │   │   │       └── service/     # 服务类
+│   │   │   │           └── WidgetUpdateService.kt
+│   │   │   ├── res/                  # 资源文件
+│   │   │   │   ├── layout/           # 布局文件
+│   │   │   │   │   ├── activity_main.xml
+│   │   │   │   │   ├── hello_world_widget.xml
+│   │   │   │   │   ├── year_progress_widget.xml
+│   │   │   │   │   ├── day_progress_widget.xml
+│   │   │   │   │   ├── todo_list_widget.xml
+│   │   │   │   │   ├── quick_note_widget.xml
+│   │   │   │   │   └── obsidian_widget.xml
+│   │   │   │   ├── values/           # 值资源
+│   │   │   │   ├── drawable/         # 图形资源
+│   │   │   │   ├── xml/              # XML配置
+│   │   │   │   └── mipmap-*/         # 图标资源
+│   │   │   └── AndroidManifest.xml   # 应用清单
 │   ├── build.gradle.kts             # 应用级构建配置
 │   └── proguard-rules.pro           # ProGuard规则
 ├── build.gradle.kts                  # 项目级构建配置
@@ -36,19 +73,37 @@ AndroidWidget/
 
 ## 开发进度
 
-### 当前阶段：阶段一 - 准备阶段（Hello World）
+### 当前阶段：阶段二 - 当日进度功能实现
 
 **已完成：**
-- ✅ 创建Android项目结构
-- ✅ 创建Widget Provider类
-- ✅ 创建Widget布局文件
-- ✅ 配置AndroidManifest.xml
-- ✅ 创建Widget配置文件
-- ✅ 添加基础资源文件
-- ⏳ 测试在模拟器/真机上运行
-- ⏳ 验证Widget可以添加到桌面
+- ✅ 阶段一：Hello World 基础框架
+- ✅ 项目结构搭建
+- ✅ 编码规范制定
+- ✅ 开发规划文档
+- ✅ 功能设计文档
 
-### 后续阶段
+**进行中：**
+- 🔄 当日进度数据模型设计
+- 🔄 时间计算工具类开发
+- 🔄 当日进度Widget布局设计
+
+### 开发路线图
+
+| 阶段 | 功能 | 状态 |
+|------|------|------|
+| 阶段一 | Hello World 基础框架 | ✅ 已完成 |
+| 阶段二 | 当日进度功能 | 🔄 进行中 |
+| 阶段三 | 年度进度功能 | ⏳ 待开始 |
+| 阶段四 | Todo List 功能 | ⏳ 待开始 |
+| 阶段五 | 记录功能 | ⏳ 待开始 |
+| 阶段六 | Obsidian连接功能 | ⏳ 待开始 |
+| 阶段七 | Widget配置与设置 | ⏳ 待开始 |
+| 阶段八 | 交互功能实现 | ⏳ 待开始 |
+| 阶段九 | 后台服务与更新机制 | ⏳ 待开始 |
+| 阶段十 | UI优化阶段 | ⏳ 待开始 |
+| 阶段十一 | 数据迁移与兼容性 | ⏳ 待开始 |
+| 阶段十二 | 测试与优化 | ⏳ 待开始 |
+| 阶段十三 | 发布准备 | ⏳ 待开始 |
 
 详见 [DEVELOPMENT_PLAN.md](DEVELOPMENT_PLAN.md)
 
@@ -109,28 +164,74 @@ Build -> Make Project
 
 ## 功能特性
 
-### 当前功能（阶段一）
-- ✅ 显示"Hello World"文本
-- ✅ 2x2单元格大小的Widget
-- ✅ 每30分钟自动更新
-- ✅ 支持深色模式
+### 核心功能
 
-### 计划功能
-- 多种尺寸支持
-- Widget配置界面
-- 定时更新服务
-- 用户交互功能
-- 业务数据展示
-- 高级特性
+#### ⏰ 当日进度 Widget
+- 实时显示当日时间进度
+- 支持工作时间段设置
+- 已用/剩余时间显示
+- 分钟级自动更新
+- 工作日/休息日区分
+
+#### 📊 年度进度 Widget
+- 显示当前年份和已过去天数
+- 年度进度百分比可视化
+- 剩余天数统计
+- 支持自定义目标日期
+- 每日自动更新
+
+#### ✅ Todo List Widget
+- 待办事项列表展示
+- 快速添加/删除待办
+- 一键标记完成
+- 优先级和截止日期
+- 完成进度统计
+- 分类标签支持
+
+#### 📝 记录 Widget
+- 快速文本记录
+- 自动时间戳
+- 记录分类（工作/生活/学习）
+- 标签系统
+- 记录搜索和过滤
+- 数据导出功能
+
+#### 🔗 Obsidian Widget
+- 连接Obsidian知识库
+- 解析Markdown笔记
+- 显示最近笔记
+- 笔记内容搜索
+- 快速打开笔记
+- 文件权限管理
+
+### 当前功能（阶段一）
+- ✅ Hello World 基础Widget
+- ✅ 2x2单元格大小
+- ✅ 自动更新机制
+- ✅ 完整的项目框架
 
 ## 开发工具
 
-- **IDE**: Android Studio
+### 核心技术
+- **IDE**: Android Studio Hedgehog (2023.1.1)+
 - **语言**: Kotlin
-- **构建工具**: Gradle
-- **测试框架**: JUnit, Espresso
+- **构建工具**: Gradle 8.2
 - **最小SDK**: 26 (Android 8.0)
 - **目标SDK**: 34 (Android 14)
+
+### 主要库和框架
+- **UI**: Material Design Components
+- **数据库**: Room Database
+- **后台任务**: WorkManager
+- **异步处理**: Kotlin Coroutines & Flow
+- **依赖注入**: Koin (可选)
+- **Markdown解析**: MarkdownJ / CommonMark
+- **JSON处理**: Gson / kotlinx.serialization
+
+### 测试框架
+- **单元测试**: JUnit 4
+- **UI测试**: Espresso
+- **Mock**: Mockk
 
 ## 贡献指南
 

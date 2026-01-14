@@ -1,12 +1,23 @@
 <resources>
     <string name="app_name">Android Widget</string>
-    
+
     <!-- Activity -->
     <string name="welcome_message">欢迎使用 Android Widget</string>
-    <string name="instruction_message">长按桌面空白处，选择小组件，添加 Hello World Widget</string>
-    
-    <!-- Widget -->
+    <string name="instruction_message">长按桌面空白处，选择小组件，添加 Widget</string>
+
+    <!-- Hello World Widget -->
     <string name="hello_world_text">Hello World!</string>
     <string name="widget_description">显示 Hello World 的小组件</string>
     <string name="widget_name">Hello World Widget</string>
+
+    <!-- Day Progress Widget -->
+    <string name="day_progress_widget_name">当日进度</string>
+    <string name="day_progress_description">实时显示当日时间进度</string>
+    <string name="day_progress_date_weekday">周三 01/15</string>
+    <string name="day_progress_current_time">14:30</string>
+    <string name="day_progress_percentage">60%</string>
+    <string name="day_progress_passed_time">已用 9.5小时</string>
+    <string name="day_progress_remaining_time">剩余 6.5小时</string>
+    <string name="day_progress_workday">工作日</string>
+    <string name="day_progress_weekend">休息日</string>
 </resources>

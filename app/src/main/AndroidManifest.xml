@@ -36,6 +36,36 @@
                 android:resource="@xml/hello_world_widget_info" />
         </receiver>
 
+        <!-- Day Progress Widget Provider -->
+        <receiver
+            android:name=".widget.DayProgressWidgetProvider"
+            android:exported="true"
+            android:enabled="true">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/day_progress_widget_info" />
+        </receiver>
+
+        <!-- Time Change Receiver -->
+        <receiver
+            android:name=".receiver.TimeChangeReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <!-- 时间变化广播 -->
+                <action android:name="android.intent.action.TIME_TICK" />
+                <action android:name="android.intent.action.TIME_SET" />
+                <action android:name="android.intent.action.DATE_CHANGED" />
+                <action android:name="android.intent.action.TIMEZONE_CHANGED" />
+                <!-- 屏幕状态广播 -->
+                <action android:name="android.intent.action.SCREEN_ON" />
+            </intent-filter>
+        </receiver>
+
     </application>
 
 </manifest>

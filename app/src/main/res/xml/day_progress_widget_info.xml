@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<appwidget-provider
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:minWidth="146dp"
+    android:minHeight="146dp"
+    android:targetCellWidth="2"
+    android:targetCellHeight="2"
+    android:updatePeriodMillis="60000"
+    android:previewImage="@drawable/day_progress_widget_preview"
+    android:initialLayout="@layout/day_progress_widget"
+    android:widgetCategory="home_screen"
+    android:initialKeyguardLayout="@layout/day_progress_widget"
+    android:description="@string/day_progress_description"
+    android:resizeMode="horizontal|vertical"
+    android:widgetFeatures="reconfigurable"/>
