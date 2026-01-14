@@ -2,6 +2,7 @@ package com.example.androidwidget
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.example.androidwidget.R
 
 /**
  * 主Activity
