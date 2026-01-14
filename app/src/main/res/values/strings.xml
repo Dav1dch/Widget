@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Android Widget</string>
+    
+    <!-- Activity -->
+    <string name="welcome_message">欢迎使用 Android Widget</string>
+    <string name="instruction_message">长按桌面空白处，选择小组件，添加 Hello World Widget</string>
+    
+    <!-- Widget -->
+    <string name="hello_world_text">Hello World!</string>
+    <string name="widget_description">显示 Hello World 的小组件</string>
+    <string name="widget_name">Hello World Widget</string>
+</resources>

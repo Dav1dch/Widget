@@ -1,0 +1,147 @@
+---
+description: 
+alwaysApply: true
+enabled: true
+updatedAt: 2026-01-14T13:41:25.088Z
+provider: 
+---
+
+# Android Widget 开发编码规范
+
+## 1. 命名规范
+
+### 1.1 包名结构
+- 使用逆域名规范：`com.yourcompany.androidwidget.*`
+- 模块分包：`ui`、`provider`、`config`、`utils`
+
+### 1.2 类命名
+- Activity/Fragment：使用 `XXXActivity`、`XXXFragment`
+- Widget Provider：使用 `XXXWidgetProvider`
+- BroadcastReceiver：使用 `XXXReceiver`
+- Service：使用 `XXXService`
+- 工具类：使用 `XXXUtils` 或 `XXXHelper`
+
+### 1.3 资源命名
+- 布局文件：小写+下划线，如 `widget_info.xml`、`widget_layout.xml`
+- String资源：`widget_title`、`widget_description`
+- 尺寸：`dimen_widget_width`、`dimen_widget_height`
+
+## 2. 代码结构规范
+
+### 2.1 Widget Provider类
+- 继承 `AppWidgetProvider`
+- 实现 `onUpdate()`、`onEnabled()`、`onDisabled()`
+- 使用 RemoteViews 更新UI
+- 在 `AndroidManifest.xml` 中正确声明
+
+### 2.2 配置Activity（可选）
+- 继承 `AppWidgetConfigureActivity`
+- 处理用户配置逻辑
+- 保存配置到SharedPreferences
+
+### 2.3 Service规范
+- 用于定时更新Widget
+- 使用 `JobScheduler` 或 `WorkManager`
+- 注意电池优化和后台限制
+
+## 3. 布局规范
+
+### 3.1 Widget尺寸
+- 遵循Android Widget尺寸指南
+- 使用 `dp` 单位，支持不同屏幕密度
+- 最小尺寸建议：4x2单元格（约 74dp x 148dp）
+
+### 3.2 布局文件
+- 优先使用 `LinearLayout` 和 `ConstraintLayout`
+- 避免过度嵌套（不超过3层）
+- 使用合适的padding和margin
+
+## 4. 资源管理
+
+### 4.1 图标和图片
+- 使用 VectorDrawable 适配不同屏幕
+- 为不同分辨率提供适当尺寸的图标
+- 预览图标：`widget_preview.xml`
+
+### 4.2 字符串资源
+- 所有文本必须使用 `strings.xml`
+- 支持国际化（提供 `values-zh` 等）
+
+## 5. 性能优化
+
+### 5.1 更新频率
+- 使用 `updatePeriodMillis` 控制更新间隔
+- 最小间隔建议：30分钟
+- 重要更新使用Service触发
+
+### 5.2 内存管理
+- 及时释放 RemoteViews
+- 避免在Widget中加载大图
+- 使用高效的布局
+
+## 6. 权限规范
+
+### 6.1 必要权限
+- INTERNET（如需网络）
+- RECEIVE_BOOT_COMPLETED（自启动）
+- 根据实际需求添加，避免过度申请
+
+### 6.2 兼容性
+- 在 `AndroidManifest.xml` 中声明 `android:minSdkVersion`
+- 使用 `@RequiresApi` 标注高版本API
+
+## 7. 注释规范
+
+### 7.1 类注释
+```kotlin
+/**
+ * Widget Provider
+ * 负责处理Widget的更新和用户交互
+ */
+```
+
+### 7.2 方法注释
+```kotlin
+/**
+ * 更新Widget视图
+ * @param context 上下文
+ * @param appWidgetManager Widget管理器
+ * @param appWidgetIds Widget ID数组
+ */
+```
+
+### 7.3 代码注释
+- 复杂逻辑必须添加注释
+- 解释"为什么"而不是"是什么"
+
+## 8. 测试规范
+
+### 8.1 测试覆盖
+- 单元测试覆盖核心逻辑
+- Widget在不同Android版本上测试
+- 测试不同屏幕尺寸适配
+
+### 8.2 版本兼容
+- 测试最低支持版本到最新版本
+- 特别注意Android 12+的Widget限制
+
+## 9. 版本管理
+
+### 9.1 版本号
+- 遵循语义化版本：MAJOR.MINOR.PATCH
+- 在 `build.gradle` 中统一管理
+
+### 9.2 变更日志
+- 记录每个版本的主要变更
+- 说明新增功能和修复的问题
+
+## 10. 安全规范
+
+### 10.1 数据存储
+- 敏感数据使用 `EncryptedSharedPreferences`
+- 避免明文存储用户信息
+
+### 10.2 网络请求
+- 使用HTTPS
+- 验证证书有效性
+- 防止中间人攻击

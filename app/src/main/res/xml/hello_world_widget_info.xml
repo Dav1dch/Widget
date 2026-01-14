@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<appwidget-provider
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:minWidth="146dp"
+    android:minHeight="146dp"
+    android:targetCellWidth="2"
+    android:targetCellHeight="2"
+    android:updatePeriodMillis="1800000"
+    android:previewImage="@drawable/widget_preview"
+    android:initialLayout="@layout/hello_world_widget"
+    android:widgetCategory="home_screen"
+    android:initialKeyguardLayout="@layout/hello_world_widget"
+    android:description="@string/widget_description"
+    android:resizeMode="horizontal|vertical"
+    android:widgetFeatures="reconfigurable"/>
