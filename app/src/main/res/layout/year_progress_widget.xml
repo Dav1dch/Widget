@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/widget_background_year_progress"
+    android:gravity="center"
+    android:padding="16dp">
+
+    <!-- 年份显示 -->
+    <TextView
+        android:id="@+id/text_year"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/year_progress_default_year"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/white"
+        android:gravity="center"/>
+
+    <!-- 已过天数/总天数 -->
+    <TextView
+        android:id="@+id/text_days_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/year_progress_days_info_default"
+        android:textSize="14sp"
+        android:textColor="@color/year_progress_text_secondary"
+        android:layout_marginTop="8dp"
+        android:gravity="center"/>
+
+    <!-- 进度条容器 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="12dp"
+        android:gravity="center_vertical">
+
+        <!-- 进度条 -->
+        <ProgressBar
+            android:id="@+id/progress_year"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="0dp"
+            android:layout_height="16dp"
+            android:layout_weight="1"
+            android:max="100"
+            android:progress="0"
+            android:progressDrawable="@drawable/year_progress_bar_layer"
+            android:layout_marginEnd="8dp"/>
+
+        <!-- 百分比显示 -->
+        <TextView
+            android:id="@+id/text_percentage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/year_progress_percentage_default"
+            android:textSize="12sp"
+            android:textColor="@android:color/white"
+            android:layout_marginStart="4dp"/>
+    </LinearLayout>
+
+    <!-- 剩余天数 -->
+    <TextView
+        android:id="@+id/text_remaining"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/year_progress_remaining_default"
+        android:textSize="12sp"
+        android:textColor="@color/year_progress_text_secondary"
+        android:layout_marginTop="8dp"
+        android:gravity="center"/>
+
+</LinearLayout>

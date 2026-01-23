@@ -5,8 +5,20 @@
     <string name="welcome_message">欢迎使用 Android Widget</string>
     <string name="instruction_message">长按桌面空白处，选择小组件，添加 Hello World Widget</string>
     
-    <!-- Widget -->
+    <!-- Hello World Widget -->
     <string name="hello_world_text">Hello World!</string>
     <string name="widget_description">显示 Hello World 的小组件</string>
     <string name="widget_name">Hello World Widget</string>
+    
+    <!-- Day Progress Widget -->
+    <string name="day_progress_widget_name">当日进度</string>
+    <string name="day_progress_widget_description">显示当日时间进度</string>
+    
+    <!-- Year Progress Widget -->
+    <string name="year_progress_widget_name">年度进度</string>
+    <string name="year_progress_widget_description">显示年度时间进度</string>
+    <string name="year_progress_default_year">2024年</string>
+    <string name="year_progress_days_info_default">123/366 天</string>
+    <string name="year_progress_percentage_default">34%</string>
+    <string name="year_progress_remaining_default">还剩 243 天</string>
 </resources>

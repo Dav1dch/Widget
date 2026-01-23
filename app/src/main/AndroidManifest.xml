@@ -38,6 +38,21 @@
                 android:resource="@xml/hello_world_widget_info" />
         </receiver>
 
+        <!-- Year Progress Widget Provider -->
+        <receiver
+            android:name=".widget.YearProgressWidgetProvider"
+            android:exported="true"
+            android:enabled="true">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="com.example.androidwidget.action.UPDATE_YEAR_PROGRESS" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/year_progress_widget_info" />
+        </receiver>
+
     </application>
 
 </manifest>
